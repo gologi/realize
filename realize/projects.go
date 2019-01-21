@@ -237,9 +237,8 @@ func (p *Project) Reload(path string, stop <-chan bool) {
 		return
 	}
 
-	fmt.Printf("status %v | %v | %v!\n", install.Err, build.Err, p.Tools.Run.Status)
+	// fmt.Printf("status %v | %v | %v!\n", install.Err, build.Err, p.Tools.Run.Status)
 	if install.Err == nil && build.Err == nil && p.Tools.Run.Status {
-		fmt.Printf("running!\n")
 		result := make(chan Response)
 		go func() {
 			for {
@@ -261,7 +260,7 @@ func (p *Project) Reload(path string, stop <-chan bool) {
 			}
 		}()
 		go func() {
-			log.Println(p.pname(p.Name, 1), ":", "Running..")
+			log.Println(p.pname(p.Name, 1), ":", "Running:", p.Path)
 			err := p.run(p.Path, result, stop)
 			if err != nil {
 				msg := fmt.Sprintln(p.pname(p.Name, 2), ":", Red.Regular(err))
