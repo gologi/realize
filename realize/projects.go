@@ -208,9 +208,9 @@ func (p *Project) Reload(path string, stop <-chan bool) {
 	// Prevent fake events on polling startup
 	p.init = true
 	// prevent errors using realize without config with only run flag
-	if p.Tools.Run.Status && !p.Tools.Install.Status && !p.Tools.Build.Status {
-		p.Tools.Install.Status = true
-	}
+	// if p.Tools.Run.Status && !p.Tools.Install.Status && !p.Tools.Build.Status {
+	// 	p.Tools.Install.Status = true
+	// }
 	if done {
 		return
 	}
@@ -236,7 +236,10 @@ func (p *Project) Reload(path string, stop <-chan bool) {
 	if done {
 		return
 	}
+
+	fmt.Printf("status %v | %v | %v!\n", install.Err, build.Err, p.Tools.Run.Status)
 	if install.Err == nil && build.Err == nil && p.Tools.Run.Status {
+		fmt.Printf("running!\n")
 		result := make(chan Response)
 		go func() {
 			for {
