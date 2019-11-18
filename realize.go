@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/gogoli/realize/realize"
+	"github.com/gologi/realize/realize"
 	"github.com/oxequa/interact"
 	"gopkg.in/urfave/cli.v2"
 )
