@@ -3,7 +3,7 @@ package main
 import (
 	"bytes"
 	"errors"
-	"github.com/gogoli/realize/realize"
+	"github.com/gologi/realize/realize"
 	"log"
 	"strings"
 	"testing"
