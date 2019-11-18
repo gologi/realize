@@ -3,7 +3,7 @@ package main
 import (
 	"bytes"
 	"errors"
-	"github.com/divoxx/realize/realize"
+	"github.com/gogoli/realize/realize"
 	"log"
 	"strings"
 	"testing"
